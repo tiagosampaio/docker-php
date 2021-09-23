@@ -105,4 +105,11 @@ RUN curl -o /usr/local/bin/composer -O https://getcomposer.org/composer-2.phar &
     ln -s /usr/local/bin/composer /usr/local/bin/composer2 && \
     chmod +x /usr/local/bin/composer*
 
+
+# BASE CONFIGURATION ---------------------------------------------------------------------------------------------------
+
+## Disable XDebug by default
+RUN sed -i -e 's/^zend_extension/\;zend_extension/g' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
+
 #-----------------------------------------------------------------------------------------------------------------------
