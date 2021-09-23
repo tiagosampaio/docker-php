@@ -1,4 +1,4 @@
-FROM php:7.4.23-fpm-buster
+FROM php:8.0.10-fpm-buster
 
 ARG GOSU_VERSION=1.11
 
@@ -84,7 +84,7 @@ RUN chmod +x /usr/local/bin/install-php-extensions && sync && install-php-extens
   zip \
   # Not available in PHP 8.0
   gnupg \
-  propro \
+  # propro \
   ssh2 \
   xmlrpc
 
@@ -104,5 +104,12 @@ RUN curl -o /usr/local/bin/composer -O https://getcomposer.org/composer-2.phar &
     curl -o /usr/local/bin/composer1 -O https://getcomposer.org/composer-1.phar && \
     ln -s /usr/local/bin/composer /usr/local/bin/composer2 && \
     chmod +x /usr/local/bin/composer*
+
+
+# BASE CONFIGURATION ---------------------------------------------------------------------------------------------------
+
+## Disable XDebug by default
+RUN sed -i -e 's/^zend_extension/\;zend_extension/g' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
 
 #-----------------------------------------------------------------------------------------------------------------------
