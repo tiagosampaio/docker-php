@@ -90,14 +90,15 @@ RUN chmod +x /usr/local/bin/install-php-extensions && sync && install-php-extens
 
 ## Configure the GD library
 RUN docker-php-ext-configure \
-  gd --enable-gd=/usr/include/ \
-     --with-freetype=/usr/include/ \
-     --with-jpeg=/usr/include/ \
-     --with-webp=/usr/include/
+  gd --with-gd \
+     --with-freetype-dir=/usr/include/ \
+     --with-jpeg-dir=/usr/include/ \
+     --with-webp-dir=/usr/include/
 RUN docker-php-ext-configure \
   ldap --with-libdir=lib/x86_64-linux-gnu
 RUN docker-php-ext-configure \
   opcache --enable-opcache
+
 
 ## Install Composer (version one and two)
 RUN curl -o /usr/local/bin/composer -O https://getcomposer.org/composer-2.phar && \
