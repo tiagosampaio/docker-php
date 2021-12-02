@@ -1,4 +1,4 @@
-FROM php:7.3.31-fpm-buster
+FROM php:7.1.33-fpm-buster
 
 ARG GOSU_VERSION=1.11
 
@@ -78,7 +78,7 @@ RUN chmod +x /usr/local/bin/install-php-extensions && sync && install-php-extens
   tidy \
   uuid \
   # Install the most recent xdebug 3.0.x version (for example 3.0.4)
-  xdebug-^3.0 \
+  xdebug-^2.9 \
   xsl \
   yaml \
   zip \
