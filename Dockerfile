@@ -78,15 +78,15 @@ RUN chmod +x /usr/local/bin/install-php-extensions && sync && install-php-extens
   tidy \
   uuid \
   # Install the most recent xdebug 3.0.x version (for example 3.0.4)
-  xdebug-^3.0 \
+  xdebug-^3 \
   xsl \
   yaml \
   zip \
-  # Not available in PHP 8.0
+  # Not available in PHP 8.1
   gnupg \
   # propro \
-  ssh2 \
-  xmlrpc
+  # xmlrpc \
+  ssh2
 
 ## Configure the GD library
 RUN docker-php-ext-configure \
