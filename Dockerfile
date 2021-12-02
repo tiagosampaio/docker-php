@@ -78,7 +78,7 @@ RUN chmod +x /usr/local/bin/install-php-extensions && sync && install-php-extens
   tidy \
   uuid \
   # Install the most recent xdebug 3.0.x version (for example 3.0.4)
-  xdebug-^3 \
+  xdebug-^3.1 \
   xsl \
   yaml \
   zip \
