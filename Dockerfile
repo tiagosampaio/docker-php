@@ -1,4 +1,4 @@
-FROM php:7.1.24-fpm
+FROM php:7.1.23-fpm
 
 ARG GOSU_VERSION=1.11
 
