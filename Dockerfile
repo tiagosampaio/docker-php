@@ -86,7 +86,8 @@ RUN chmod +x /usr/local/bin/install-php-extensions && sync && install-php-extens
   gnupg \
   propro \
   ssh2 \
-  xmlrpc
+  xmlrpc \
+  sourceguardian
 
 ## Configure the GD library
 RUN docker-php-ext-configure \
