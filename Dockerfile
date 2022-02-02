@@ -1,4 +1,4 @@
-FROM php:8.0.9-fpm-buster
+FROM php:8.0.15-fpm-buster
 
 ARG GOSU_VERSION=1.11
 
@@ -86,7 +86,8 @@ RUN chmod +x /usr/local/bin/install-php-extensions && sync && install-php-extens
   gnupg \
   # propro \
   ssh2 \
-  xmlrpc
+  xmlrpc \
+  sourceguardian
 
 ## Configure the GD library
 RUN docker-php-ext-configure \
