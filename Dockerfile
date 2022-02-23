@@ -22,10 +22,6 @@ RUN apt-get update \
   unzip \
   && rm -rf /var/lib/apt/lists/*
 
-## Prepare NewRelic agent installation
-RUN echo 'deb http://apt.newrelic.com/debian/ newrelic non-free' | sudo tee /etc/apt/sources.list.d/newrelic.list \
-  && wget -O- https://download.newrelic.com/548C16BF.gpg | sudo apt-key add -
-
 ## Install Tools
 RUN apt update && apt install -y --no-install-recommends \
   git \
@@ -33,7 +29,6 @@ RUN apt update && apt install -y --no-install-recommends \
   vim \
   procps \
   watch \
-  newrelic-php5 \
   && rm -rf /var/lib/apt/lists/*
 
 
@@ -49,6 +44,7 @@ RUN apt update && apt install -y --no-install-recommends \
   libldb-dev \
   libldap2-dev \
   && rm -rf /var/lib/apt/lists/*
+
 
 ## Install required PHP extensions
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
@@ -108,6 +104,13 @@ RUN docker-php-ext-configure \
   ldap --with-libdir=lib/x86_64-linux-gnu
 RUN docker-php-ext-configure \
   opcache --enable-opcache
+
+
+## Prepare NewRelic agent installation
+RUN echo 'deb http://apt.newrelic.com/debian/ newrelic non-free' | tee /etc/apt/sources.list.d/newrelic.list \
+  && wget -O- https://download.newrelic.com/548C16BF.gpg | apt-key add -
+
+RUN apt update && apt install -y --no-install-recommends newrelic-php5
 
 
 ## Install Composer (version one and two)
