@@ -103,6 +103,14 @@ RUN docker-php-ext-configure \
 RUN docker-php-ext-configure \
   opcache --enable-opcache
 
+
+## Prepare NewRelic agent installation
+RUN echo 'deb http://apt.newrelic.com/debian/ newrelic non-free' | tee /etc/apt/sources.list.d/newrelic.list \
+  && wget -O- https://download.newrelic.com/548C16BF.gpg | apt-key add -
+
+RUN apt update && apt install -y --no-install-recommends newrelic-php5
+
+
 ## Install Composer (version one and two)
 RUN curl -o /usr/local/bin/composer -O https://getcomposer.org/composer-2.phar && \
     curl -o /usr/local/bin/composer1 -O https://getcomposer.org/composer-1.phar && \
