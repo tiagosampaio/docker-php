@@ -22,6 +22,10 @@ RUN apt-get update \
   unzip \
   && rm -rf /var/lib/apt/lists/*
 
+## Prepare NewRelic agent installation
+RUN echo 'deb http://apt.newrelic.com/debian/ newrelic non-free' | sudo tee /etc/apt/sources.list.d/newrelic.list \
+  && wget -O- https://download.newrelic.com/548C16BF.gpg | sudo apt-key add -
+
 ## Install Tools
 RUN apt update && apt install -y --no-install-recommends \
   git \
@@ -29,7 +33,9 @@ RUN apt update && apt install -y --no-install-recommends \
   vim \
   procps \
   watch \
+  newrelic-php5 \
   && rm -rf /var/lib/apt/lists/*
+
 
 ## Install PHP dependencies (required to configure the GD library)
 RUN apt update && apt install -y --no-install-recommends \
