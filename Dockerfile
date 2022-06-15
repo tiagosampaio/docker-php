@@ -1,4 +1,4 @@
-FROM php:8.0.18-fpm-buster
+FROM php:8.0.19-fpm-buster
 
 ARG GOSU_VERSION=1.11
 
