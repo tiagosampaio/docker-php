@@ -77,15 +77,15 @@ RUN chmod +x /usr/local/bin/install-php-extensions && sync && install-php-extens
   sysvshm \
   tidy \
   uuid \
-  # Install the most recent xdebug 3.2.x version (for example 3.2.4)
-  xdebug-^3-stable \
+  # Install the most recent xdebug 3.x version (for example 3.1.x)
+  xdebug-^3.1 \
   xsl \
   yaml \
   zip \
   # Not available in PHP 8.1
   gnupg \
   # propro \
-  # xmlrpc \
+  xmlrpc \
   ssh2 \
   apcu \
   pgsql \
