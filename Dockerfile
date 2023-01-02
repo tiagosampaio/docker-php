@@ -1,6 +1,4 @@
-FROM php:7.4.30-fpm-buster
-
-ARG GOSU_VERSION=1.11
+FROM php:7.4.32-fpm-buster
 
 
 # ENVIRONMENT VARIABLES ------------------------------------------------------------------------------------------------
