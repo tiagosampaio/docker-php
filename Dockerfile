@@ -1,4 +1,4 @@
-FROM php:8.1.12-fpm-buster
+FROM php:8.1.13-fpm-buster
 
 
 # ENVIRONMENT VARIABLES ------------------------------------------------------------------------------------------------
@@ -76,7 +76,7 @@ RUN chmod +x /usr/local/bin/install-php-extensions && sync && install-php-extens
   tidy \
   uuid \
   # Install the most recent xdebug 3.x version (for example 3.1.x)
-  xdebug-^3.1 \
+  xdebug-^3.2 \
   xsl \
   yaml \
   zip \
